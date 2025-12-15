@@ -1,0 +1,278 @@
+    1  ls
+    2  apt update
+    3  ls
+    4  cd busybox/
+    5  make menuconfig
+    6  apt install make
+    7  make menuconfig
+    8  apt install gcc
+    9  make menuconfig
+   10  apt install ncurses
+   11  apt install curses
+   12  apt install ncursess
+   13  apt install ncurses
+   14  apt install libncurses-dev
+   15  make menuconfig
+   16  make -j10
+   17  make
+   18  apt install bzip2
+   19  make
+   20  make menuconfig
+   21  history > dockerRaw.log
+
+
+
+### bottom are second log
+
+
+    1  ls
+    2  cd busybox/
+    3  make menuconfig
+    4  apt update
+    5  ls
+    6  cat log.txt 
+    7  apt install gcc
+    8  ls
+    9  make menuconfig
+   10  make
+   11  apt install make
+   12  make menuconfig
+   13  apt install ncurses
+   14  apt install ncurses-dev
+   15  make menuconfig
+   16  make -j20
+   17  apt install bzip2
+   18  make -j20
+   19  vim .config
+   20  make -j20
+   21  make clean
+   22  make -j20
+   23  vim libbb/hash_md5_sha.c
+   24  make -j20
+   25  ./busybox
+   26  ls
+   27  history >> dockerRaw.log 
+    1  ls
+    2  cd busybox/
+    3  make menuconfig
+    4  apt update
+    5  ls
+    6  cat log.txt 
+    7  apt install gcc
+    8  ls
+    9  make menuconfig
+   10  make
+   11  apt install make
+   12  make menuconfig
+   13  apt install ncurses
+   14  apt install ncurses-dev
+   15  make menuconfig
+   16  make -j20
+   17  apt install bzip2
+   18  make -j20
+   19  vim .config
+   20  make -j20
+   21  make clean
+   22  make -j20
+   23  vim libbb/hash_md5_sha.c
+   24  make -j20
+   25  ./busybox
+   26  ls
+   27  history >> dockerRaw.log 
+   28  ls
+   29  vim .gitignore 
+   30  mkdir workspace
+   31  git status
+   32  cd workspace/
+   33  mkdir -p initrd/{bin, proc, sys}
+   34  ls
+   35  ls initrd/
+   36  ls
+   37  rm initrd/ -rf
+   38  mkdir -p initrd/bin, proc, sys
+   39  ls
+   40  rm -rf *
+   41  mkdir -p initrd/bin
+   42  mkdir -p initrd/proc
+   43  mkdir -p initrd/sys
+   44  ls
+   45  cd initrd/bin/
+   46  ls
+   47  cp /busybox/busybox .
+   48  ls
+   49  for f in $(./busybox --list); do ln -s /bin/busybox ./$f; done
+   50  ls
+   51  ./cp
+   52  ls
+   53  rm -rf *
+   54  cp /busybox/busybox .
+   55  ls
+   56  ./busybox --lsit
+   57  ./busybox --list
+   58  for f in $(./busybox --list); do ln -s ./busybox ./$f; done
+   59  ls
+   60  ./dc
+   61  ./bc
+   62  ls
+   63  cd ..
+   64  ls
+   65  chmod 777 init
+   66  ls
+   67  find . | cpio -H newc -o > ../initrd.img
+   68  ls
+   69  cat init 
+   70  lsls
+   71  ls
+   72  ls -l
+   73  ls bin/
+   74  cd bin/
+   75  ls
+   76  file busybox 
+   77  ls
+   78  rm *
+   79  ls
+   80  cp /busybox/busybox .
+   81  for f in $(./busybox --list); do ln -s /bin/busybox ./$f; done
+   82  ls
+   83  ./busybox --init
+   84  cd ../
+   85  ls
+   86  cat init 
+   87  file init
+   88  head -n 1 init
+   89  ls
+   90  cat init 
+   91  chmod 777 init
+   92  ls
+   93  ls -l
+   94  cd bin/
+   95  ls
+   96  ls -l
+   97  chmod 777 *
+   98  ls
+   99  cd ../
+  100  ls
+  101  cd bin/
+  102  ls
+  103  rm -rf *
+  104  ls
+  105  cp /busybox/busybox .
+  106  ls
+  107  readelf busybox 
+  108  readelf -h busybox 
+  109  ls
+  110  file busybox 
+  111  for f in $(./busybox --list); do ln -s busybox $f; done
+  112  ls
+  113  ./init
+  114  ./grep
+  115  readelf -h grep 
+  116  cd ../
+  117  ls
+  118  cat init 
+  119  ls
+  120  cd bin/
+  121  ls
+  122  file sh
+  123  apt install bin-utils
+  124  apt install binutils
+  125  readelf -h sh
+  126  readelf -l bin/busybox | grep interpreter
+  127  readelf -l busybox | grep interpreter
+  128  ls
+  129  ln -sf busybox init
+  130  ls
+  131  cp busybox init
+  132  cp busybox init -rf
+  133  ls
+  134  rm init 
+  135  cp busybox init 
+  136  cp busybox sh
+  137  rm sh
+  138  cp busybox sh
+  139  cd ../
+  140  rm ../initrd.img 
+  141  ls
+  142  cd bin/
+  143  ls
+  144  ./busybox 
+  145  ./mv 
+  146  ./nice
+  147  ./busybox
+  148  ls
+  149  cd ..
+  150  ls
+  151  vim init 
+  152  apt install cim
+  153  apt install vim
+  154  ls
+  155  vim init 
+  156  ls
+  157  file init 
+  158  readelf init 
+  159  readelf -h init 
+  160  ls
+  161  cat init 
+  162  ls
+  163  cat init 
+  164  cd bin/
+  165  ./busybox sh
+  166  ls
+  167  ./busybox init
+  168  ls
+  169  file busybox 
+  170  cd ../
+  171  ls
+  172  cat init 
+  173  ls
+  174  rm ../initrd.img 
+  175  ls
+  176  vim init 
+  177  ls
+  178  macOS 下用了 BSD cpio（有坑）
+  179  cpio
+  180  apt install cpio
+  181  ls
+  182  cd ../
+  183  ls
+  184  ls initrd
+  185  cat initrd
+  186  ls
+  187  cd initrd
+  188  ls
+  189  cat init 
+  190  ls bin/
+  191  ./bin/sh
+  192  ls
+  193  ./bin/sh ../init
+  194  ls -l
+  195  ls -l bin/
+  196  ls
+  197  cp init init_bak
+  198  rm init
+  199  ls
+  200  cp bin/busybox init
+  201  ls
+  202  ./init
+  203  ls
+  204  file init
+  205  readelf -h init
+  206  ls
+  207  ldd init
+  208  mv init_bak init
+  209  ls
+  210  cat init 
+  211  ls
+  212  ls dev/
+  213  ls bin/
+  214  cd bin/
+  215  ls
+  216  ./init 
+  217  ./sh
+  218  cpio --version
+  219  ls
+  220  cd ../../
+  221  ls
+  222  cd ../
+  223  ls
+  224  history >> shell.log 

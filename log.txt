@@ -1,0 +1,42 @@
+# build busybox
+
+attention static busybox complie
+
+# make initrd 
+
+mkdir xx
+cd xx/
+mkdir -p initrd/bin
+mkdir -p initrd/proc
+mkdir -p initrd/sys
+
+cd initrd/bin/
+# according to the location
+cp ~/Program/busybox-master/busybox .
+for f in $(./busybox --list); do ln -s ./busybox ./$f; done
+
+# back initrd dir
+cd ..
+vim init
+## bottom shell code are  init file content ||||||||||||||||||||||||||||||
+#!/bin/sh
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+mount -t devtmpfs udev /dev
+sysctl -w kernel.printk="2 4 1 7"
+# clear
+/bin/sh
+## top shell code are init file content |||||||||||||||||||||||||||||||||
+
+chmod 777 init 
+
+find . | cpio -H newc -o > ../initrd.img
+
+qemu-system-x86_64 -kernel ../linux-master/arch/x86_64/boot/bzImage -initrd initrd.img -nographic -append "console=ttyS0"
+
+# poweoff | just type : echo o > /proc/sysrq-trigger
+
+# RTFM
+
+基于 linux-6.16 及 busybox 1.37 构建一个最小化可启动的系统 - 装机之家的文章 - 知乎
+https://zhuanlan.zhihu.com/p/1934273723977955133
